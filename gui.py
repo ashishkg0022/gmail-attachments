@@ -57,7 +57,8 @@ class MyDialog(QtGui.QDialog):
 		try:
 			rv, data = M.login(EMAIL_ACCOUNT, self.ui.lineEdit_2.text())
 		except imaplib.IMAP4.error:
-			print "LOGIN FAILED!!! "
+			QtGui.QMessageBox.question(self, 'Error', "LOGIN FAILED!!!", QtGui.QMessageBox.Ok)
+			#print "LOGIN FAILED!!! "
 			sys.exit(1)
 
 		print data

@@ -6,7 +6,7 @@ This program is a Python script that downloads attachments found in the inbox of
 
 ### Prerequisites
 
-- ~~Python3~~ Python 2.5+
+- Python 2.5+
 
 ### Installing
 
