@@ -53,12 +53,15 @@ class MyDialog(QtGui.QDialog):
 
 	def auth(self, EMAIL_ACCOUNT):
 		M = imaplib.IMAP4_SSL('imap.gmail.com')
-
 		try:
 			rv, data = M.login(EMAIL_ACCOUNT, self.ui.lineEdit_2.text())
 		except imaplib.IMAP4.error:
-			print "LOGIN FAILED!!! "
-			sys.exit(1)
+			choice=QtGui.QMessageBox.question(self, 'Error', "LOGIN FAILED!!!", QtGui.QMessageBox.Retry, QtGui.QMessageBox.Exit)
+			if choice=QtGui.QMessageBox.Exit:
+				#print "LOGIN FAILED!!! "
+				sys.exit(1)
+			elif choice=QtGui.QMessageBox.Retry:
+				auth(self, EMAIL_ACCOUNT)
 
 		print data
 		search_email = self.ui.lineEdit_3.text()
